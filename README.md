@@ -1,11 +1,11 @@
 # Automated-Fraud-Detection-and-Alerting-System-
 
 Automated Fraud Detection and Alerting System
-📌 Project Overview
+ Project Overview
 
 The Automated Fraud Detection and Alerting System is designed to detect fraudulent transactions in real time using rule-based checks and machine learning techniques. The system processes high-volume transactions with low latency and generates alerts for suspicious activities, enabling quick response and manual review when required.
 
-🎯 Objectives
+ Objectives
 
 Detect fraudulent transactions in real time
 
@@ -15,7 +15,7 @@ Provide instant alerts to operations teams
 
 Ensure secure, scalable, and reliable transaction processing
 
-⚙️ System Features
+ System Features:-
 
 Real-time transaction ingestion
 
@@ -31,8 +31,8 @@ Email, SMS, and dashboard alerts
 
 Audit trail and manual review support
 
-🧩 System Requirements
-Technical Requirements
+ System Requirements:-
+1.Technical Requirements
 
 Real-time processing with low latency
 
@@ -42,7 +42,7 @@ Secure data handling
 
 Horizontal scalability
 
-Non-Technical Requirements
+2.Non-Technical Requirements
 
 99.99% availability
 
@@ -52,7 +52,7 @@ High reliability and fault tolerance
 
 Easy maintenance and monitoring
 
-Software Requirements
+3.Software Requirements
 
 Operating System: Linux
 
@@ -64,7 +64,7 @@ Database: PostgreSQL / MongoDB
 
 Containerization: Docker, Kubernetes
 
-Hardware Requirements
+4.Hardware Requirements
 
 Multi-core servers
 
