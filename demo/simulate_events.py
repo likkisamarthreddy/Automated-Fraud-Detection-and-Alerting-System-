@@ -6,5 +6,10 @@ events=[
     {"user_id":"U1","amount":18000,"device":"new"}
 ]
 
+print("Starting fraud event simulation")
+
 for e in events:
-    print(process_event(e))
+    print("Input event:", e)
+    print("Decision output:", process_event(e))
+
+print("Simulation completed")
