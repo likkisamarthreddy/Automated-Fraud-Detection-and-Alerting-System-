@@ -19,17 +19,14 @@ Ensure secure, scalable, and reliable transaction processing
 
 Real-time transaction ingestion
 
-Rule-based fraud detection
+## System Features
 
-ML-based fraud scoring
+- Rule-based fraud detection
+- Risk score calculation
+- Fraud decision pipeline (Allow / Alert)
+- Console-based alerting
+- Audit logging support
 
-Behavioral anomaly detection
-
-Decision engine (Allow / Block / Flag)
-
-Email, SMS, and dashboard alerts
-
-Audit trail and manual review support
 
  System Requirements:-
 1.Technical Requirements
