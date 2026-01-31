@@ -70,3 +70,13 @@ Minimum 16–32 GB RAM
 SSD storage
 
 High-speed network connectivity
+
+
+
+## Future Enhancements
+
+- ML-based fraud scoring
+- Behavioral anomaly detection
+- Kafka-based event ingestion
+- Email and dashboard alerts
+- Horizontal scaling with containers
