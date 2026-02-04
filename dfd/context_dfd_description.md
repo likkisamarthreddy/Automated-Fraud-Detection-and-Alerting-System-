@@ -1,3 +1,2 @@
 This diagram shows the Automated Fraud Detection and Alerting System as one
-process and its interaction with external entities. Transaction data flows
-into the system and fraud alerts and reports flow out to users and services.
+process and its interaction with external entities. Transaction data flows into the system from the Transaction Source, while fraud alerts, notifications, and summarized reports flow outward to different users and supporting services. The Fraud Analyst receives detailed fraud alerts for investigation, the Notification Service delivers alert messages to concerned parties, and the System Administrator obtains system reports and audit-related information for monitoring and control. By presenting only the external data exchanges and hiding internal processing details, the context diagram clearly defines the system boundary and provides an overall understanding of how the system communicates with its surrounding environment.
