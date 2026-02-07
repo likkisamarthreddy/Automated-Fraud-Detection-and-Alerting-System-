@@ -1,1 +1,10 @@
+# B. Covering the Structural Aspects of the Software
 
+Structural aspects of software describe how the system is organized internally.
+UML (Unified Modeling Language) is used to model the static structure, class
+responsibilities, and relationships among system components.
+
+The primary UML diagrams used are:
+
+- Class Diagram
+- Object Diagram
