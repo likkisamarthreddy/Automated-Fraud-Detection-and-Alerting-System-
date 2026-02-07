@@ -1,36 +1,67 @@
-# UML Class Diagram – Automated Fraud Detection and Alerting System
+# Q1. Identification of Key Classes
 
-## Transaction
-- -transactionId : String
-- -userId : String
-- -amount : float
-- -device : String
-- -timestamp : datetime
+The key classes involved in the Automated Fraud Detection and Alerting System
+are described below with their attributes, methods, and visibility.
 
-+getTransactionId()
-+getUserId()
-+getAmount()
+## 1. Transaction
+Represents a financial transaction received by the system.
 
-## RuleEngine
-- -limit : float
-+evaluate(transaction)
+Attributes:
+- - transactionId : String
+- - userId : String
+- - amount : float
+- - device : String
+- - timestamp : datetime
 
-## RiskAnalyzer
-- -baseScore : int
-+calculate(transaction)
+Methods:
++ getTransactionId() : String  
++ getUserId() : String  
++ getAmount() : float  
 
-## AlertService
-- -channel : String
-+sendAlert(userId,message)
+## 2. RuleEngine
+Applies rule-based fraud detection logic on transactions.
 
-## AuditLogger
-- -logs : list
-+logEvent(event)
+Attributes:
+- - limit : float
 
-## FraudDetectionSystem
-- -ruleEngine : RuleEngine
-- -riskAnalyzer : RiskAnalyzer
-- -alertService : AlertService
-- -auditLogger : AuditLogger
+Methods:
++ evaluate(transaction : Transaction) : boolean  
 
-+processTransaction(transaction)
+## 3. RiskAnalyzer
+Calculates the risk score of a transaction.
+
+Attributes:
+- - baseScore : int
+
+Methods:
++ calculate(transaction : Transaction) : int  
+
+## 4. AlertService
+Handles alert generation and notification.
+
+Attributes:
+- - channel : String
+
+Methods:
++ sendAlert(userId : String, message : String) : void  
+
+## 5. AuditLogger
+Maintains logs for auditing and monitoring.
+
+Attributes:
+- - logs : List<String>
+
+Methods:
++ logEvent(event : String) : void  
+
+## 6. FraudDetectionSystem
+Acts as the main controller coordinating all components.
+
+Attributes:
+- - ruleEngine : RuleEngine
+- - riskAnalyzer : RiskAnalyzer
+- - alertService : AlertService
+- - auditLogger : AuditLogger
+
+Methods:
++ processTransaction(transaction : Transaction) : void
