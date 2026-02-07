@@ -5,10 +5,8 @@ object-oriented principles. The key classes involved in the system are
 identified below along with their attributes, functionalities (methods),
 and visibility.
 
-## Visibility Notation (UML)
-- + : Public
-- - : Private
-- # : Protected
+Visibility of members is explicitly mentioned as Public, Private, or
+Protected to ensure proper encapsulation and controlled access.
 
 ---
 
@@ -16,16 +14,16 @@ and visibility.
 Represents a financial transaction received by the system.
 
 ### Attributes
-- - transactionId : String
-- - userId : String
-- - amount : float
-- - device : String
-- - timestamp : datetime
+- transactionId : String (Private)
+- userId : String (Private)
+- amount : float (Private)
+- device : String (Private)
+- timestamp : datetime (Private)
 
 ### Methods
-- + getTransactionId() : String
-- + getUserId() : String
-- + getAmount() : float
+- getTransactionId() : String (Public)
+- getUserId() : String (Public)
+- getAmount() : float (Public)
 
 ---
 
@@ -33,10 +31,10 @@ Represents a financial transaction received by the system.
 Applies rule-based fraud detection logic on transactions.
 
 ### Attributes
-- - limit : float
+- limit : float (Protected)
 
 ### Methods
-- + evaluate(transaction : Transaction) : boolean
+- evaluate(transaction : Transaction) : boolean (Public)
 
 ---
 
@@ -44,10 +42,10 @@ Applies rule-based fraud detection logic on transactions.
 Calculates the fraud risk score of a transaction.
 
 ### Attributes
-- - baseScore : int
+- baseScore : int (Private)
 
 ### Methods
-- + calculate(transaction : Transaction) : int
+- calculate(transaction : Transaction) : int (Public)
 
 ---
 
@@ -55,10 +53,10 @@ Calculates the fraud risk score of a transaction.
 Handles fraud alert generation and notification.
 
 ### Attributes
-- - channel : String
+- channel : String (Private)
 
 ### Methods
-- + sendAlert(userId : String, message : String) : void
+- sendAlert(userId : String, message : String) : void (Public)
 
 ---
 
@@ -66,10 +64,10 @@ Handles fraud alert generation and notification.
 Maintains audit logs for monitoring and compliance purposes.
 
 ### Attributes
-- - logs : List<String>
+- logs : List<String> (Private)
 
 ### Methods
-- + logEvent(event : String) : void
+- logEvent(event : String) : void (Public)
 
 ---
 
@@ -77,18 +75,18 @@ Maintains audit logs for monitoring and compliance purposes.
 Acts as the main controller that coordinates all system components.
 
 ### Attributes
-- - ruleEngine : RuleEngine
-- - riskAnalyzer : RiskAnalyzer
-- - alertService : AlertService
-- - auditLogger : AuditLogger
+- ruleEngine : RuleEngine (Private)
+- riskAnalyzer : RiskAnalyzer (Private)
+- alertService : AlertService (Private)
+- auditLogger : AuditLogger (Private)
 
 ### Methods
-- + processTransaction(transaction : Transaction) : void
+- processTransaction(transaction : Transaction) : void (Public)
 
 ---
 
 ## Conclusion
-These classes collectively define the structural foundation of the
-Automated Fraud Detection and Alerting System. Each class has a clearly
-defined responsibility, supporting modularity, scalability, and
-maintainability of the system.
+The above classes collectively define the structural foundation of the
+Automated Fraud Detection and Alerting System. Proper use of access
+modifiers ensures encapsulation, modularity, scalability, and
+maintainability of the software system.
