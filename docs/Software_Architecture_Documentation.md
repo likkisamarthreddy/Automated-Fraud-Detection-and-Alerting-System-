@@ -49,5 +49,53 @@ Service isolation also prevents cascading failures, allowing unaffected componen
 This design supports high availability requirements critical for financial security platforms and regulatory compliance.
 
 
+## II. Application Components
+
+### 1. Core Microservices
+
+*API Gateway*  
+Acts as the single entry point for frontend clients and manages routing, load balancing, security filtering, and rate limiting.
+
+*Auth Service*  
+Handles user registration, login, JWT authentication, and session validation.
+
+*Transaction Service*  
+Collects transactions from external systems, stores transaction history, and publishes the TransactionCreated event to Kafka.
+
+*Fraud Engine Service*  
+Consumes transaction events, applies fraud detection rules, calculates risk scores, and emits the FraudDetected event.
+
+*Alert Service*  
+Listens for fraud events, sends email and dashboard notifications, and maintains alert logs.
+
+---
+
+### 2. Infrastructure and Data Layer
+
+*Kafka with Zookeeper* provides asynchronous event-driven communication, message durability, and service decoupling.
+
+*Redis* is used for session caching, fast rule lookup, and temporary fraud-score storage.
+
+*MySQL Cluster* persistently stores users, transactions, fraud alerts, and audit logs.
+
+---
+
+### 3. Frontend Component
+
+*FraudGuard Console* is built using React and Vite and provides real-time dashboards, transaction monitoring, fraud analytics visualization, rule configuration, and alert management.
+
+---
+
+## III. High-Level System Flow
+
+User → API Gateway → Auth Service → Transaction Service → Kafka → Fraud Engine Service → FraudDetected Event → Alert Service → Email or Dashboard Notification
+
+---
+
+## IV. Architecture Benefits Summary
+
+The FraudGuard microservices architecture delivers independent scaling of compute-heavy services, loose coupling for rapid evolution, asynchronous processing for low latency, Kafka-based fault tolerance, and a modern real-time monitoring interface. This makes the system production-ready, resilient, and highly scalable.
+
+
 ---
 
