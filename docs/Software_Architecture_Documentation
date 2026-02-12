@@ -1,0 +1,19 @@
+Software Architecture Documentation
+  
+I. Chosen Architecture Style: Microservices Architecture
+The Automated Fraud Detection and Alerting System utilizes a Microservices Architecture style. This approach decomposes the application into a collection of small, independent services that communicate over a network.
+
+A. Justification by Granularity
+Functional Decomposition: The system is divided based on business capabilities:
+Auth Service: Handles identity and access management.
+Transaction Service: Manages the ingestion and storage of financial transactions.
+Fraud Engine Service: Analyzes data in real-time using predefined rules and risk scoring.
+Alert Service: Orchestrates notifications across various channels.
+Service Independence: Each service is a "granular" unit of deployment. They run in separate containers, have their own business logic, and maintain logical data isolation (dedicated database schemas).
+Internal Layering: While the overall style is Microservices, individual services follow a Layered Architecture internally (Controller -> Service -> Repository) to ensure clean code within each granular component.
+  
+B. Justification for the Choice
+Scalability: The fraud-engine-service, which performs heavy computation (risk scoring), can be scaled horizontally (more instances) during peak transaction periods without needing to scale the alert-service or auth-service.
+Maintainability: The decoupled nature allows developers to modify or upgrade the alerting logic (e.g., adding SMS alerts) without affecting the core transaction processing or auth flows.
+Performance & Responsiveness: By using Kafka for asynchronous communication, the system can acknowledge a transaction immediately while the fraud analysis and alerting happen in the background, minimizing latency for the end-user.
+Fault Tolerance: If the alert-service experiences downtime, Kafka buffers the messages. Once the service is restored, it processes the pending alerts, ensuring no critical fraud notification is lost.
