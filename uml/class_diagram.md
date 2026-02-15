@@ -1,92 +1,62 @@
-# Q1. Identification of Key Classes
+# Class Diagram - Microservices Components
 
-The Automated Fraud Detection and Alerting System is designed using
-object-oriented principles. The key classes involved in the system are
-identified below along with their attributes, functionalities (methods),
-and visibility.
+This Class Diagram illustrates the key software components (classes/interfaces) within the primary microservices of the **Automated Fraud Detection System**. It highlights the separation of concerns between standard transaction processing and the specialized fraud detection logic.
 
-Visibility of members is explicitly mentioned as Public, Private, or
-Protected to ensure proper encapsulation and controlled access.
+## Key Classes by Service
 
----
+### 1. Transaction Service
+*   **TransactionController**: REST API endpoint for receiving transactions.
+*   **TransactionService**: Business logic for validation and persistence.
+*   **TransactionRepository**: Interface for database operations.
+*   **Transaction**: Entity representing the financial data.
 
-## 1. Transaction
-Represents a financial transaction received by the system.
+### 2. Fraud Engine Service
+*   **FraudCheckController**: Internal API for receiving analysis requests.
+*   **FraudAnalysisService**: Core logic that orchestrates rule evaluation.
+*   **RuleEngine**: Component that processes individual rules.
+*   **RiskScoreCalculator**: Computes the final risk score.
 
-### Attributes
-- transactionId : String (Private)
-- userId : String (Private)
-- amount : float (Private)
-- device : String (Private)
-- timestamp : datetime (Private)
+### 3. Shared/Common
+*   **FraudAlert**: DTO containing alert details.
 
-### Methods
-- getTransactionId() : String (Public)
-- getUserId() : String (Public)
-- getAmount() : float (Public)
+```mermaid
+classDiagram
+    class TransactionController {
+        +submitTransaction(TransactionRequest): ResponseEntity
+    }
+    class TransactionService {
+        +processTransaction(Transaction): void
+        +initiateFraudCheck(Transaction): void
+    }
+    class Transaction {
+        -String transactionId
+        -String userId
+        -BigDecimal amount
+        -LocalDateTime timestamp
+    }
+    
+    class FraudCheckController {
+        +evaluateRisk(Transaction): FraudResult
+    }
+    class FraudAnalysisService {
+        +analyze(Transaction): FraudResult
+    }
+    class RuleEngine {
+        +evaluateRules(Transaction): List~RuleViolation~
+    }
+    class RiskScoreCalculator {
+        +computeScore(List~RuleViolation~): int
+    }
 
----
+    TransactionController --> TransactionService
+    TransactionService --> Transaction
+    TransactionService ..> FraudCheckController : "RPC / REST Call"
+    
+    FraudCheckController --> FraudAnalysisService
+    FraudAnalysisService --> RuleEngine
+    FraudAnalysisService --> RiskScoreCalculator
+```
 
-## 2. RuleEngine
-Applies rule-based fraud detection logic on transactions.
+## Explanation
+The diagram shows how the `TransactionService` handles the initial request and creates a `Transaction` entity. It then communicates (via RPC/REST) with the `FraudCheckController` in the Fraud Engine. The `FraudAnalysisService` coordinates the `RuleEngine` to find violations and uses the `RiskScoreCalculator` to determine the final outcome.
 
-### Attributes
-- limit : float (Protected)
-
-### Methods
-- evaluate(transaction : Transaction) : boolean (Public)
-
----
-
-## 3. RiskAnalyzer
-Calculates the fraud risk score of a transaction.
-
-### Attributes
-- baseScore : int (Private)
-
-### Methods
-- calculate(transaction : Transaction) : int (Public)
-
----
-
-## 4. AlertService
-Handles fraud alert generation and notification.
-
-### Attributes
-- channel : String (Private)
-
-### Methods
-- sendAlert(userId : String, message : String) : void (Public)
-
----
-
-## 5. AuditLogger
-Maintains audit logs for monitoring and compliance purposes.
-
-### Attributes
-- logs : List<String> (Private)
-
-### Methods
-- logEvent(event : String) : void (Public)
-
----
-
-## 6. FraudDetectionSystem
-Acts as the main controller that coordinates all system components.
-
-### Attributes
-- ruleEngine : RuleEngine (Private)
-- riskAnalyzer : RiskAnalyzer (Private)
-- alertService : AlertService (Private)
-- auditLogger : AuditLogger (Private)
-
-### Methods
-- processTransaction(transaction : Transaction) : void (Public)
-
----
-
-## Conclusion
-The above classes collectively define the structural foundation of the
-Automated Fraud Detection and Alerting System. Proper use of access
-modifiers ensures encapsulation, modularity, scalability, and
-maintainability of the software system.
