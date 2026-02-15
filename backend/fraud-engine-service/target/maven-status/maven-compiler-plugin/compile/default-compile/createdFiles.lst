@@ -1,0 +1,16 @@
+com\frauddetection\fraudengine\repository\FraudResultRepository.class
+com\frauddetection\fraudengine\config\DataInitializer.class
+com\frauddetection\fraudengine\service\VelocityService.class
+com\frauddetection\fraudengine\entity\FraudRule.class
+com\frauddetection\fraudengine\entity\FraudResult.class
+com\frauddetection\fraudengine\engine\RuleEngine$RuleResult.class
+com\frauddetection\fraudengine\service\FraudRuleService.class
+com\frauddetection\fraudengine\service\IdempotencyService.class
+com\frauddetection\fraudengine\engine\RuleEngine.class
+com\frauddetection\fraudengine\controller\FraudRuleController.class
+com\frauddetection\fraudengine\service\VelocityService$TransactionRecord.class
+com\frauddetection\fraudengine\FraudEngineApplication.class
+com\frauddetection\fraudengine\kafka\TransactionConsumer.class
+com\frauddetection\fraudengine\repository\FraudRuleRepository.class
+com\frauddetection\fraudengine\service\VelocityService$UserProfile.class
+com\frauddetection\fraudengine\service\FraudEngineService.class

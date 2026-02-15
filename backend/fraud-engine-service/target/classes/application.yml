@@ -1,0 +1,73 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: fraud-engine-service
+  datasource:
+    url: jdbc:mysql://localhost:3307/fraud_engine?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: frauduser
+    password: fraudpass
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: fraud-group
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: com.frauddetection.common.dto
+        spring.json.type.mapping: transactionEvent:com.frauddetection.common.dto.TransactionEvent
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.type.mapping: fraudResultEvent:com.frauddetection.common.dto.FraudResultEvent
+    listener:
+      ack-mode: manual
+
+fraud:
+  rules:
+    amount-threshold: 10000
+    amount-risk: 60
+    new-device-risk: 30
+    velocity-threshold: 5
+    velocity-risk: 40
+  decision:
+    block-threshold: 80
+    alert-threshold: 50
+  idempotency:
+    ttl-hours: 24
+  velocity:
+    ttl-seconds: 60
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  pattern:
+    console: '{"time":"%d{yyyy-MM-dd HH:mm:ss}","level":"%p","service":"fraud-engine","msg":"%m"}%n'
+  level:
+    com.frauddetection: DEBUG

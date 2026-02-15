@@ -1,0 +1,13 @@
+D:\Automated-Fraud-Detection-and-Alerting-System--master\backend\fraud-engine-service\src\main\java\com\frauddetection\fraudengine\repository\FraudRuleRepository.java
+D:\Automated-Fraud-Detection-and-Alerting-System--master\backend\fraud-engine-service\src\main\java\com\frauddetection\fraudengine\service\IdempotencyService.java
+D:\Automated-Fraud-Detection-and-Alerting-System--master\backend\fraud-engine-service\src\main\java\com\frauddetection\fraudengine\entity\FraudRule.java
+D:\Automated-Fraud-Detection-and-Alerting-System--master\backend\fraud-engine-service\src\main\java\com\frauddetection\fraudengine\service\FraudRuleService.java
+D:\Automated-Fraud-Detection-and-Alerting-System--master\backend\fraud-engine-service\src\main\java\com\frauddetection\fraudengine\service\VelocityService.java
+D:\Automated-Fraud-Detection-and-Alerting-System--master\backend\fraud-engine-service\src\main\java\com\frauddetection\fraudengine\FraudEngineApplication.java
+D:\Automated-Fraud-Detection-and-Alerting-System--master\backend\fraud-engine-service\src\main\java\com\frauddetection\fraudengine\repository\FraudResultRepository.java
+D:\Automated-Fraud-Detection-and-Alerting-System--master\backend\fraud-engine-service\src\main\java\com\frauddetection\fraudengine\kafka\TransactionConsumer.java
+D:\Automated-Fraud-Detection-and-Alerting-System--master\backend\fraud-engine-service\src\main\java\com\frauddetection\fraudengine\entity\FraudResult.java
+D:\Automated-Fraud-Detection-and-Alerting-System--master\backend\fraud-engine-service\src\main\java\com\frauddetection\fraudengine\service\FraudEngineService.java
+D:\Automated-Fraud-Detection-and-Alerting-System--master\backend\fraud-engine-service\src\main\java\com\frauddetection\fraudengine\config\DataInitializer.java
+D:\Automated-Fraud-Detection-and-Alerting-System--master\backend\fraud-engine-service\src\main\java\com\frauddetection\fraudengine\engine\RuleEngine.java
+D:\Automated-Fraud-Detection-and-Alerting-System--master\backend\fraud-engine-service\src\main\java\com\frauddetection\fraudengine\controller\FraudRuleController.java

@@ -1,0 +1,771 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+{"time":"2026-02-14 19:04:31","level":"INFO","service":"fraud-engine","msg":"Starting FraudEngineApplication v1.0.0 using Java 22.0.2 with PID 19844 (D:\Automated-Fraud-Detection-and-Alerting-System--master\backend\fraud-engine-service\target\fraud-engine-service-1.0.0.jar started by user in D:\Automated-Fraud-Detection-and-Alerting-System--master\backend)"}
+{"time":"2026-02-14 19:04:31","level":"DEBUG","service":"fraud-engine","msg":"Running with Spring Boot v3.2.5, Spring v6.1.6"}
+{"time":"2026-02-14 19:04:31","level":"INFO","service":"fraud-engine","msg":"No active profile set, falling back to 1 default profile: "default""}
+{"time":"2026-02-14 19:04:43","level":"INFO","service":"fraud-engine","msg":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+{"time":"2026-02-14 19:04:43","level":"INFO","service":"fraud-engine","msg":"Bootstrapping Spring Data JPA repositories in DEFAULT mode."}
+{"time":"2026-02-14 19:04:45","level":"INFO","service":"fraud-engine","msg":"Finished Spring Data repository scanning in 1359 ms. Found 2 JPA repository interfaces."}
+{"time":"2026-02-14 19:04:45","level":"INFO","service":"fraud-engine","msg":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+{"time":"2026-02-14 19:04:45","level":"INFO","service":"fraud-engine","msg":"Bootstrapping Spring Data Redis repositories in DEFAULT mode."}
+{"time":"2026-02-14 19:04:45","level":"INFO","service":"fraud-engine","msg":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.frauddetection.fraudengine.repository.FraudResultRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"time":"2026-02-14 19:04:45","level":"INFO","service":"fraud-engine","msg":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.frauddetection.fraudengine.repository.FraudRuleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"time":"2026-02-14 19:04:45","level":"INFO","service":"fraud-engine","msg":"Finished Spring Data repository scanning in 48 ms. Found 0 Redis repository interfaces."}
+{"time":"2026-02-14 19:04:52","level":"INFO","service":"fraud-engine","msg":"Tomcat initialized with port 8083 (http)"}
+{"time":"2026-02-14 19:04:52","level":"INFO","service":"fraud-engine","msg":"Starting service [Tomcat]"}
+{"time":"2026-02-14 19:04:52","level":"INFO","service":"fraud-engine","msg":"Starting Servlet engine: [Apache Tomcat/10.1.20]"}
+{"time":"2026-02-14 19:04:52","level":"INFO","service":"fraud-engine","msg":"Initializing Spring embedded WebApplicationContext"}
+{"time":"2026-02-14 19:04:52","level":"INFO","service":"fraud-engine","msg":"Root WebApplicationContext: initialization completed in 20253 ms"}
+{"time":"2026-02-14 19:04:56","level":"INFO","service":"fraud-engine","msg":"HikariPool-1 - Starting..."}
+{"time":"2026-02-14 19:05:00","level":"INFO","service":"fraud-engine","msg":"HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e981e78"}
+{"time":"2026-02-14 19:05:00","level":"INFO","service":"fraud-engine","msg":"HikariPool-1 - Start completed."}
+{"time":"2026-02-14 19:05:01","level":"INFO","service":"fraud-engine","msg":"Flyway Community Edition 9.22.3 by Redgate"}
+{"time":"2026-02-14 19:05:01","level":"INFO","service":"fraud-engine","msg":"See release notes here: https://rd.gt/416ObMi"}
+{"time":"2026-02-14 19:05:01","level":"INFO","service":"fraud-engine","msg":""}
+{"time":"2026-02-14 19:05:01","level":"INFO","service":"fraud-engine","msg":"Database: jdbc:mysql://localhost:3307/fraud_engine (MySQL 8.0)"}
+{"time":"2026-02-14 19:05:02","level":"INFO","service":"fraud-engine","msg":"Successfully validated 2 migrations (execution time 00:00.162s)"}
+{"time":"2026-02-14 19:05:02","level":"INFO","service":"fraud-engine","msg":"Current version of schema `fraud_engine`: 2"}
+{"time":"2026-02-14 19:05:02","level":"INFO","service":"fraud-engine","msg":"Schema `fraud_engine` is up to date. No migration necessary."}
+{"time":"2026-02-14 19:05:03","level":"INFO","service":"fraud-engine","msg":"HHH000204: Processing PersistenceUnitInfo [name: default]"}
+{"time":"2026-02-14 19:05:03","level":"INFO","service":"fraud-engine","msg":"HHH000412: Hibernate ORM core version 6.4.4.Final"}
+{"time":"2026-02-14 19:05:04","level":"INFO","service":"fraud-engine","msg":"HHH000026: Second-level cache disabled"}
+{"time":"2026-02-14 19:05:05","level":"INFO","service":"fraud-engine","msg":"No LoadTimeWeaver setup: ignoring JPA class transformer"}
+{"time":"2026-02-14 19:05:06","level":"WARN","service":"fraud-engine","msg":"HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)"}
+{"time":"2026-02-14 19:05:10","level":"INFO","service":"fraud-engine","msg":"HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)"}
+{"time":"2026-02-14 19:05:11","level":"INFO","service":"fraud-engine","msg":"Initialized JPA EntityManagerFactory for persistence unit 'default'"}
+{"time":"2026-02-14 19:05:19","level":"WARN","service":"fraud-engine","msg":"spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning"}
+{"time":"2026-02-14 19:05:24","level":"INFO","service":"fraud-engine","msg":"Exposing 3 endpoint(s) beneath base path '/actuator'"}
+{"time":"2026-02-14 19:05:25","level":"INFO","service":"fraud-engine","msg":"AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+"}
+{"time":"2026-02-14 19:05:26","level":"INFO","service":"fraud-engine","msg":"Kafka version: 3.6.2"}
+{"time":"2026-02-14 19:05:26","level":"INFO","service":"fraud-engine","msg":"Kafka commitId: c4deed513057c94e"}
+{"time":"2026-02-14 19:05:26","level":"INFO","service":"fraud-engine","msg":"Kafka startTimeMs: 1771076126871"}
+{"time":"2026-02-14 19:05:30","level":"INFO","service":"fraud-engine","msg":"App info kafka.admin.client for adminclient-1 unregistered"}
+{"time":"2026-02-14 19:05:30","level":"INFO","service":"fraud-engine","msg":"Metrics scheduler closed"}
+{"time":"2026-02-14 19:05:30","level":"INFO","service":"fraud-engine","msg":"Closing reporter org.apache.kafka.common.metrics.JmxReporter"}
+{"time":"2026-02-14 19:05:30","level":"INFO","service":"fraud-engine","msg":"Metrics reporters closed"}
+{"time":"2026-02-14 19:05:30","level":"INFO","service":"fraud-engine","msg":"Tomcat started on port 8083 (http) with context path ''"}
+{"time":"2026-02-14 19:05:30","level":"INFO","service":"fraud-engine","msg":"ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-fraud-group.dlq-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = fraud-group.dlq
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"Kafka version: 3.6.2"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"Kafka commitId: c4deed513057c94e"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"Kafka startTimeMs: 1771076131313"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.dlq-1, groupId=fraud-group.dlq] Subscribed to topic(s): transactions.main.dlq"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-fraud-group.retry-2000-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = fraud-group.retry-2000
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.dlq-1, groupId=fraud-group.dlq] Cluster ID: WPiVAdxdSRixZnzSJJY8Bg"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.dlq-1, groupId=fraud-group.dlq] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"Kafka version: 3.6.2"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"Kafka commitId: c4deed513057c94e"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"Kafka startTimeMs: 1771076131482"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.dlq-1, groupId=fraud-group.dlq] (Re-)joining group"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-2000-2, groupId=fraud-group.retry-2000] Subscribed to topic(s): transactions.main.retry-2000"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-fraud-group-3
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = fraud-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-2000-2, groupId=fraud-group.retry-2000] Cluster ID: WPiVAdxdSRixZnzSJJY8Bg"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-2000-2, groupId=fraud-group.retry-2000] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-2000-2, groupId=fraud-group.retry-2000] (Re-)joining group"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.dlq-1, groupId=fraud-group.dlq] Request joining group due to: need to re-join with the given member-id: consumer-fraud-group.dlq-1-62ed49cd-680c-4055-a96d-124748fe19fc"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.dlq-1, groupId=fraud-group.dlq] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.dlq-1, groupId=fraud-group.dlq] (Re-)joining group"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"Kafka version: 3.6.2"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"Kafka commitId: c4deed513057c94e"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"Kafka startTimeMs: 1771076131671"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-2000-2, groupId=fraud-group.retry-2000] Request joining group due to: need to re-join with the given member-id: consumer-fraud-group.retry-2000-2-3dc4fe2d-4a4c-48c3-8702-4edcdaa00de0"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-2000-2, groupId=fraud-group.retry-2000] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-2000-2, groupId=fraud-group.retry-2000] (Re-)joining group"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group-3, groupId=fraud-group] Subscribed to topic(s): transactions.main"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-fraud-group.retry-1000-4
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = fraud-group.retry-1000
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"Kafka version: 3.6.2"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"Kafka commitId: c4deed513057c94e"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"Kafka startTimeMs: 1771076131741"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group-3, groupId=fraud-group] Cluster ID: WPiVAdxdSRixZnzSJJY8Bg"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group-3, groupId=fraud-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group-3, groupId=fraud-group] (Re-)joining group"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group-3, groupId=fraud-group] Request joining group due to: need to re-join with the given member-id: consumer-fraud-group-3-d35802f3-7953-40ab-9b5e-e3ac66db63a2"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group-3, groupId=fraud-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group-3, groupId=fraud-group] (Re-)joining group"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-1000-4, groupId=fraud-group.retry-1000] Subscribed to topic(s): transactions.main.retry-1000"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-1000-4, groupId=fraud-group.retry-1000] Cluster ID: WPiVAdxdSRixZnzSJJY8Bg"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-1000-4, groupId=fraud-group.retry-1000] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-1000-4, groupId=fraud-group.retry-1000] (Re-)joining group"}
+{"time":"2026-02-14 19:05:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-1000-4, groupId=fraud-group.retry-1000] Request joining group due to: need to re-join with the given member-id: consumer-fraud-group.retry-1000-4-996bec21-b1d9-4a52-9043-dc5404398c1c"}
+{"time":"2026-02-14 19:05:32","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-1000-4, groupId=fraud-group.retry-1000] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)"}
+{"time":"2026-02-14 19:05:32","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-1000-4, groupId=fraud-group.retry-1000] (Re-)joining group"}
+{"time":"2026-02-14 19:05:32","level":"INFO","service":"fraud-engine","msg":"Started FraudEngineApplication in 64.73 seconds (process running for 72.392)"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.dlq-1, groupId=fraud-group.dlq] Successfully joined group with generation Generation{generationId=5, memberId='consumer-fraud-group.dlq-1-62ed49cd-680c-4055-a96d-124748fe19fc', protocol='range'}"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.dlq-1, groupId=fraud-group.dlq] Finished assignment for group at generation 5: {consumer-fraud-group.dlq-1-62ed49cd-680c-4055-a96d-124748fe19fc=Assignment(partitions=[transactions.main.dlq-0])}"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.dlq-1, groupId=fraud-group.dlq] Successfully synced group in generation Generation{generationId=5, memberId='consumer-fraud-group.dlq-1-62ed49cd-680c-4055-a96d-124748fe19fc', protocol='range'}"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.dlq-1, groupId=fraud-group.dlq] Notifying assignor about the new Assignment(partitions=[transactions.main.dlq-0])"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-2000-2, groupId=fraud-group.retry-2000] Successfully joined group with generation Generation{generationId=5, memberId='consumer-fraud-group.retry-2000-2-3dc4fe2d-4a4c-48c3-8702-4edcdaa00de0', protocol='range'}"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-2000-2, groupId=fraud-group.retry-2000] Finished assignment for group at generation 5: {consumer-fraud-group.retry-2000-2-3dc4fe2d-4a4c-48c3-8702-4edcdaa00de0=Assignment(partitions=[transactions.main.retry-2000-0])}"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.dlq-1, groupId=fraud-group.dlq] Adding newly assigned partitions: transactions.main.dlq-0"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-2000-2, groupId=fraud-group.retry-2000] Successfully synced group in generation Generation{generationId=5, memberId='consumer-fraud-group.retry-2000-2-3dc4fe2d-4a4c-48c3-8702-4edcdaa00de0', protocol='range'}"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-2000-2, groupId=fraud-group.retry-2000] Notifying assignor about the new Assignment(partitions=[transactions.main.retry-2000-0])"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-2000-2, groupId=fraud-group.retry-2000] Adding newly assigned partitions: transactions.main.retry-2000-0"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-2000-2, groupId=fraud-group.retry-2000] Found no committed offset for partition transactions.main.retry-2000-0"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.dlq-1, groupId=fraud-group.dlq] Found no committed offset for partition transactions.main.dlq-0"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-2000-2, groupId=fraud-group.retry-2000] Resetting offset for partition transactions.main.retry-2000-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}."}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.dlq-1, groupId=fraud-group.dlq] Resetting offset for partition transactions.main.dlq-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}."}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"fraud-group.dlq: partitions assigned: [transactions.main.dlq-0]"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"fraud-group.retry-2000: partitions assigned: [transactions.main.retry-2000-0]"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group-3, groupId=fraud-group] Successfully joined group with generation Generation{generationId=7, memberId='consumer-fraud-group-3-d35802f3-7953-40ab-9b5e-e3ac66db63a2', protocol='range'}"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group-3, groupId=fraud-group] Finished assignment for group at generation 7: {consumer-fraud-group-3-d35802f3-7953-40ab-9b5e-e3ac66db63a2=Assignment(partitions=[transactions.main-0])}"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group-3, groupId=fraud-group] Successfully synced group in generation Generation{generationId=7, memberId='consumer-fraud-group-3-d35802f3-7953-40ab-9b5e-e3ac66db63a2', protocol='range'}"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group-3, groupId=fraud-group] Notifying assignor about the new Assignment(partitions=[transactions.main-0])"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group-3, groupId=fraud-group] Adding newly assigned partitions: transactions.main-0"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group-3, groupId=fraud-group] Setting offset for partition transactions.main-0 to the committed offset FetchPosition{offset=50, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}"}
+{"time":"2026-02-14 19:05:34","level":"INFO","service":"fraud-engine","msg":"fraud-group: partitions assigned: [transactions.main-0]"}
+{"time":"2026-02-14 19:05:35","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-1000-4, groupId=fraud-group.retry-1000] Successfully joined group with generation Generation{generationId=5, memberId='consumer-fraud-group.retry-1000-4-996bec21-b1d9-4a52-9043-dc5404398c1c', protocol='range'}"}
+{"time":"2026-02-14 19:05:35","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-1000-4, groupId=fraud-group.retry-1000] Finished assignment for group at generation 5: {consumer-fraud-group.retry-1000-4-996bec21-b1d9-4a52-9043-dc5404398c1c=Assignment(partitions=[transactions.main.retry-1000-0])}"}
+{"time":"2026-02-14 19:05:35","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-1000-4, groupId=fraud-group.retry-1000] Successfully synced group in generation Generation{generationId=5, memberId='consumer-fraud-group.retry-1000-4-996bec21-b1d9-4a52-9043-dc5404398c1c', protocol='range'}"}
+{"time":"2026-02-14 19:05:35","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-1000-4, groupId=fraud-group.retry-1000] Notifying assignor about the new Assignment(partitions=[transactions.main.retry-1000-0])"}
+{"time":"2026-02-14 19:05:35","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-1000-4, groupId=fraud-group.retry-1000] Adding newly assigned partitions: transactions.main.retry-1000-0"}
+{"time":"2026-02-14 19:05:35","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-1000-4, groupId=fraud-group.retry-1000] Found no committed offset for partition transactions.main.retry-1000-0"}
+{"time":"2026-02-14 19:05:35","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-1000-4, groupId=fraud-group.retry-1000] Resetting offset for partition transactions.main.retry-1000-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}."}
+{"time":"2026-02-14 19:05:35","level":"INFO","service":"fraud-engine","msg":"fraud-group.retry-1000: partitions assigned: [transactions.main.retry-1000-0]"}
+{"time":"2026-02-14 19:05:35","level":"INFO","service":"fraud-engine","msg":"Received transaction event: txnId=fb2b2a4b-141e-4142-8d67-1d98eea02194, userId=USR-REAL-01, amount=150.0"}
+{"time":"2026-02-14 19:05:36","level":"INFO","service":"fraud-engine","msg":"Rule evaluation: txnId=fb2b2a4b-141e-4142-8d67-1d98eea02194, amount=150.0, score=0, decision=ALLOW, reason=All checks passed"}
+{"time":"2026-02-14 19:05:36","level":"DEBUG","service":"fraud-engine","msg":"Transaction marked as processed: txnId=fb2b2a4b-141e-4142-8d67-1d98eea02194, ttl=24h"}
+{"time":"2026-02-14 19:05:36","level":"INFO","service":"fraud-engine","msg":"Fraud analysis complete: txnId=fb2b2a4b-141e-4142-8d67-1d98eea02194, risk=0, decision=ALLOW"}
+{"time":"2026-02-14 19:05:36","level":"INFO","service":"fraud-engine","msg":"ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+"}
+{"time":"2026-02-14 19:05:36","level":"INFO","service":"fraud-engine","msg":"[Producer clientId=producer-1] Instantiated an idempotent producer."}
+{"time":"2026-02-14 19:05:36","level":"INFO","service":"fraud-engine","msg":"Kafka version: 3.6.2"}
+{"time":"2026-02-14 19:05:36","level":"INFO","service":"fraud-engine","msg":"Kafka commitId: c4deed513057c94e"}
+{"time":"2026-02-14 19:05:36","level":"INFO","service":"fraud-engine","msg":"Kafka startTimeMs: 1771076136946"}
+{"time":"2026-02-14 19:05:36","level":"INFO","service":"fraud-engine","msg":"[Producer clientId=producer-1] Cluster ID: WPiVAdxdSRixZnzSJJY8Bg"}
+{"time":"2026-02-14 19:05:36","level":"INFO","service":"fraud-engine","msg":"[Producer clientId=producer-1] ProducerId set to 11 with epoch 0"}
+{"time":"2026-02-14 19:05:37","level":"INFO","service":"fraud-engine","msg":"Fraud result published: txnId=fb2b2a4b-141e-4142-8d67-1d98eea02194, score=0, decision=ALLOW"}
+{"time":"2026-02-14 19:05:37","level":"DEBUG","service":"fraud-engine","msg":"Transaction acknowledged: txnId=fb2b2a4b-141e-4142-8d67-1d98eea02194"}
+{"time":"2026-02-14 19:05:37","level":"INFO","service":"fraud-engine","msg":"Received transaction event: txnId=1420b6f6-1180-4ef0-8151-9e8dddb4f8d5, userId=USR-REAL-01, amount=500.0"}
+{"time":"2026-02-14 19:05:37","level":"INFO","service":"fraud-engine","msg":"Rule evaluation: txnId=1420b6f6-1180-4ef0-8151-9e8dddb4f8d5, amount=500.0, score=0, decision=ALLOW, reason=All checks passed"}
+{"time":"2026-02-14 19:05:37","level":"DEBUG","service":"fraud-engine","msg":"Transaction marked as processed: txnId=1420b6f6-1180-4ef0-8151-9e8dddb4f8d5, ttl=24h"}
+{"time":"2026-02-14 19:05:37","level":"INFO","service":"fraud-engine","msg":"Fraud analysis complete: txnId=1420b6f6-1180-4ef0-8151-9e8dddb4f8d5, risk=0, decision=ALLOW"}
+{"time":"2026-02-14 19:05:37","level":"INFO","service":"fraud-engine","msg":"Fraud result published: txnId=1420b6f6-1180-4ef0-8151-9e8dddb4f8d5, score=0, decision=ALLOW"}
+{"time":"2026-02-14 19:05:37","level":"DEBUG","service":"fraud-engine","msg":"Transaction acknowledged: txnId=1420b6f6-1180-4ef0-8151-9e8dddb4f8d5"}
+{"time":"2026-02-14 19:05:37","level":"INFO","service":"fraud-engine","msg":"Received transaction event: txnId=ce4a4ee6-6073-4421-b83d-d65c6f0a26f9, userId=USR-REAL-01, amount=1200.0"}
+{"time":"2026-02-14 19:05:37","level":"INFO","service":"fraud-engine","msg":"Rule evaluation: txnId=ce4a4ee6-6073-4421-b83d-d65c6f0a26f9, amount=1200.0, score=0, decision=ALLOW, reason=All checks passed"}
+{"time":"2026-02-14 19:05:37","level":"DEBUG","service":"fraud-engine","msg":"Transaction marked as processed: txnId=ce4a4ee6-6073-4421-b83d-d65c6f0a26f9, ttl=24h"}
+{"time":"2026-02-14 19:05:37","level":"INFO","service":"fraud-engine","msg":"Fraud analysis complete: txnId=ce4a4ee6-6073-4421-b83d-d65c6f0a26f9, risk=0, decision=ALLOW"}
+{"time":"2026-02-14 19:05:37","level":"INFO","service":"fraud-engine","msg":"Fraud result published: txnId=ce4a4ee6-6073-4421-b83d-d65c6f0a26f9, score=0, decision=ALLOW"}
+{"time":"2026-02-14 19:05:37","level":"DEBUG","service":"fraud-engine","msg":"Transaction acknowledged: txnId=ce4a4ee6-6073-4421-b83d-d65c6f0a26f9"}
+{"time":"2026-02-14 19:05:37","level":"INFO","service":"fraud-engine","msg":"Received transaction event: txnId=3ec080bd-2c9a-462a-a2c3-43441b356fef, userId=USR-REAL-01, amount=2500.0"}
+{"time":"2026-02-14 19:05:37","level":"INFO","service":"fraud-engine","msg":"Rule evaluation: txnId=3ec080bd-2c9a-462a-a2c3-43441b356fef, amount=2500.0, score=0, decision=ALLOW, reason=All checks passed"}
+{"time":"2026-02-14 19:05:37","level":"DEBUG","service":"fraud-engine","msg":"Transaction marked as processed: txnId=3ec080bd-2c9a-462a-a2c3-43441b356fef, ttl=24h"}
+{"time":"2026-02-14 19:05:37","level":"INFO","service":"fraud-engine","msg":"Fraud analysis complete: txnId=3ec080bd-2c9a-462a-a2c3-43441b356fef, risk=0, decision=ALLOW"}
+{"time":"2026-02-14 19:05:37","level":"INFO","service":"fraud-engine","msg":"Fraud result published: txnId=3ec080bd-2c9a-462a-a2c3-43441b356fef, score=0, decision=ALLOW"}
+{"time":"2026-02-14 19:05:37","level":"DEBUG","service":"fraud-engine","msg":"Transaction acknowledged: txnId=3ec080bd-2c9a-462a-a2c3-43441b356fef"}
+{"time":"2026-02-14 19:05:37","level":"INFO","service":"fraud-engine","msg":"Received transaction event: txnId=c5a6c566-b0f8-4592-a13b-df6672b089d3, userId=USR-REAL-01, amount=450.0"}
+{"time":"2026-02-14 19:05:37","level":"INFO","service":"fraud-engine","msg":"Rule evaluation: txnId=c5a6c566-b0f8-4592-a13b-df6672b089d3, amount=450.0, score=0, decision=ALLOW, reason=All checks passed"}
+{"time":"2026-02-14 19:05:37","level":"DEBUG","service":"fraud-engine","msg":"Transaction marked as processed: txnId=c5a6c566-b0f8-4592-a13b-df6672b089d3, ttl=24h"}
+{"time":"2026-02-14 19:05:37","level":"INFO","service":"fraud-engine","msg":"Fraud analysis complete: txnId=c5a6c566-b0f8-4592-a13b-df6672b089d3, risk=0, decision=ALLOW"}
+{"time":"2026-02-14 19:05:37","level":"INFO","service":"fraud-engine","msg":"Fraud result published: txnId=c5a6c566-b0f8-4592-a13b-df6672b089d3, score=0, decision=ALLOW"}
+{"time":"2026-02-14 19:05:37","level":"DEBUG","service":"fraud-engine","msg":"Transaction acknowledged: txnId=c5a6c566-b0f8-4592-a13b-df6672b089d3"}
+{"time":"2026-02-14 19:06:14","level":"INFO","service":"fraud-engine","msg":"Received transaction event: txnId=8ca71e31-9995-442e-93d4-b08dd0a9628e, userId=USR-TEST-FINAL, amount=150000.0"}
+{"time":"2026-02-14 19:06:14","level":"DEBUG","service":"fraud-engine","msg":"AMOUNT rule triggered: Large Transaction Amount for amount=150000.0"}
+{"time":"2026-02-14 19:06:14","level":"INFO","service":"fraud-engine","msg":"Rule evaluation: txnId=8ca71e31-9995-442e-93d4-b08dd0a9628e, amount=150000.0, score=50, decision=ALERT, reason=Large Transaction Amount (>10000)"}
+{"time":"2026-02-14 19:06:14","level":"DEBUG","service":"fraud-engine","msg":"Transaction marked as processed: txnId=8ca71e31-9995-442e-93d4-b08dd0a9628e, ttl=24h"}
+{"time":"2026-02-14 19:06:14","level":"INFO","service":"fraud-engine","msg":"Fraud analysis complete: txnId=8ca71e31-9995-442e-93d4-b08dd0a9628e, risk=50, decision=ALERT"}
+{"time":"2026-02-14 19:06:14","level":"INFO","service":"fraud-engine","msg":"Fraud result published: txnId=8ca71e31-9995-442e-93d4-b08dd0a9628e, score=50, decision=ALERT"}
+{"time":"2026-02-14 19:06:14","level":"DEBUG","service":"fraud-engine","msg":"Transaction acknowledged: txnId=8ca71e31-9995-442e-93d4-b08dd0a9628e"}
+{"time":"2026-02-14 19:10:05","level":"INFO","service":"fraud-engine","msg":"Received transaction event: txnId=36d19da1-6f21-4bb8-87a5-a80753059c06, userId=USR-SIM-04, amount=150000.0"}
+{"time":"2026-02-14 19:10:05","level":"DEBUG","service":"fraud-engine","msg":"AMOUNT rule triggered: Large Transaction Amount for amount=150000.0"}
+{"time":"2026-02-14 19:10:05","level":"INFO","service":"fraud-engine","msg":"Rule evaluation: txnId=36d19da1-6f21-4bb8-87a5-a80753059c06, amount=150000.0, score=50, decision=ALERT, reason=Large Transaction Amount (>10000)"}
+{"time":"2026-02-14 19:10:05","level":"DEBUG","service":"fraud-engine","msg":"Transaction marked as processed: txnId=36d19da1-6f21-4bb8-87a5-a80753059c06, ttl=24h"}
+{"time":"2026-02-14 19:10:05","level":"INFO","service":"fraud-engine","msg":"Fraud analysis complete: txnId=36d19da1-6f21-4bb8-87a5-a80753059c06, risk=50, decision=ALERT"}
+{"time":"2026-02-14 19:10:05","level":"INFO","service":"fraud-engine","msg":"Fraud result published: txnId=36d19da1-6f21-4bb8-87a5-a80753059c06, score=50, decision=ALERT"}
+{"time":"2026-02-14 19:10:05","level":"DEBUG","service":"fraud-engine","msg":"Transaction acknowledged: txnId=36d19da1-6f21-4bb8-87a5-a80753059c06"}
+{"time":"2026-02-14 19:10:30","level":"INFO","service":"fraud-engine","msg":"Received transaction event: txnId=fd8e2d7f-e086-4d7e-9190-ea2f02679012, userId=USR-SIM-04, amount=150000.0"}
+{"time":"2026-02-14 19:10:30","level":"DEBUG","service":"fraud-engine","msg":"AMOUNT rule triggered: Large Transaction Amount for amount=150000.0"}
+{"time":"2026-02-14 19:10:30","level":"INFO","service":"fraud-engine","msg":"Rule evaluation: txnId=fd8e2d7f-e086-4d7e-9190-ea2f02679012, amount=150000.0, score=50, decision=ALERT, reason=Large Transaction Amount (>10000)"}
+{"time":"2026-02-14 19:10:30","level":"DEBUG","service":"fraud-engine","msg":"Transaction marked as processed: txnId=fd8e2d7f-e086-4d7e-9190-ea2f02679012, ttl=24h"}
+{"time":"2026-02-14 19:10:30","level":"INFO","service":"fraud-engine","msg":"Fraud analysis complete: txnId=fd8e2d7f-e086-4d7e-9190-ea2f02679012, risk=50, decision=ALERT"}
+{"time":"2026-02-14 19:10:30","level":"INFO","service":"fraud-engine","msg":"Fraud result published: txnId=fd8e2d7f-e086-4d7e-9190-ea2f02679012, score=50, decision=ALERT"}
+{"time":"2026-02-14 19:10:30","level":"DEBUG","service":"fraud-engine","msg":"Transaction acknowledged: txnId=fd8e2d7f-e086-4d7e-9190-ea2f02679012"}
+{"time":"2026-02-14 19:10:31","level":"INFO","service":"fraud-engine","msg":"Received transaction event: txnId=47bccb75-065b-4a0f-944d-467e82653f61, userId=USR-SIM-04, amount=150000.0"}
+{"time":"2026-02-14 19:10:31","level":"DEBUG","service":"fraud-engine","msg":"AMOUNT rule triggered: Large Transaction Amount for amount=150000.0"}
+{"time":"2026-02-14 19:10:31","level":"INFO","service":"fraud-engine","msg":"Rule evaluation: txnId=47bccb75-065b-4a0f-944d-467e82653f61, amount=150000.0, score=50, decision=ALERT, reason=Large Transaction Amount (>10000)"}
+{"time":"2026-02-14 19:10:31","level":"DEBUG","service":"fraud-engine","msg":"Transaction marked as processed: txnId=47bccb75-065b-4a0f-944d-467e82653f61, ttl=24h"}
+{"time":"2026-02-14 19:10:31","level":"INFO","service":"fraud-engine","msg":"Fraud analysis complete: txnId=47bccb75-065b-4a0f-944d-467e82653f61, risk=50, decision=ALERT"}
+{"time":"2026-02-14 19:10:31","level":"INFO","service":"fraud-engine","msg":"Fraud result published: txnId=47bccb75-065b-4a0f-944d-467e82653f61, score=50, decision=ALERT"}
+{"time":"2026-02-14 19:10:31","level":"DEBUG","service":"fraud-engine","msg":"Transaction acknowledged: txnId=47bccb75-065b-4a0f-944d-467e82653f61"}
+{"time":"2026-02-14 19:10:32","level":"INFO","service":"fraud-engine","msg":"Received transaction event: txnId=54ca0ebc-b23e-4811-b119-5613b0cd5316, userId=USR-SIM-04, amount=150000.0"}
+{"time":"2026-02-14 19:10:32","level":"DEBUG","service":"fraud-engine","msg":"AMOUNT rule triggered: Large Transaction Amount for amount=150000.0"}
+{"time":"2026-02-14 19:10:32","level":"INFO","service":"fraud-engine","msg":"Rule evaluation: txnId=54ca0ebc-b23e-4811-b119-5613b0cd5316, amount=150000.0, score=50, decision=ALERT, reason=Large Transaction Amount (>10000)"}
+{"time":"2026-02-14 19:10:32","level":"DEBUG","service":"fraud-engine","msg":"Transaction marked as processed: txnId=54ca0ebc-b23e-4811-b119-5613b0cd5316, ttl=24h"}
+{"time":"2026-02-14 19:10:32","level":"INFO","service":"fraud-engine","msg":"Fraud analysis complete: txnId=54ca0ebc-b23e-4811-b119-5613b0cd5316, risk=50, decision=ALERT"}
+{"time":"2026-02-14 19:10:32","level":"INFO","service":"fraud-engine","msg":"Fraud result published: txnId=54ca0ebc-b23e-4811-b119-5613b0cd5316, score=50, decision=ALERT"}
+{"time":"2026-02-14 19:10:32","level":"DEBUG","service":"fraud-engine","msg":"Transaction acknowledged: txnId=54ca0ebc-b23e-4811-b119-5613b0cd5316"}
+{"time":"2026-02-14 19:10:33","level":"INFO","service":"fraud-engine","msg":"Received transaction event: txnId=d32e7e20-660c-4b1e-88db-325bd6ae23b0, userId=USR-SIM-04, amount=150000.0"}
+{"time":"2026-02-14 19:10:33","level":"DEBUG","service":"fraud-engine","msg":"AMOUNT rule triggered: Large Transaction Amount for amount=150000.0"}
+{"time":"2026-02-14 19:10:33","level":"INFO","service":"fraud-engine","msg":"Rule evaluation: txnId=d32e7e20-660c-4b1e-88db-325bd6ae23b0, amount=150000.0, score=50, decision=ALERT, reason=Large Transaction Amount (>10000)"}
+{"time":"2026-02-14 19:10:33","level":"DEBUG","service":"fraud-engine","msg":"Transaction marked as processed: txnId=d32e7e20-660c-4b1e-88db-325bd6ae23b0, ttl=24h"}
+{"time":"2026-02-14 19:10:33","level":"INFO","service":"fraud-engine","msg":"Fraud analysis complete: txnId=d32e7e20-660c-4b1e-88db-325bd6ae23b0, risk=50, decision=ALERT"}
+{"time":"2026-02-14 19:10:33","level":"INFO","service":"fraud-engine","msg":"Fraud result published: txnId=d32e7e20-660c-4b1e-88db-325bd6ae23b0, score=50, decision=ALERT"}
+{"time":"2026-02-14 19:10:33","level":"DEBUG","service":"fraud-engine","msg":"Transaction acknowledged: txnId=d32e7e20-660c-4b1e-88db-325bd6ae23b0"}
+{"time":"2026-02-14 19:10:33","level":"INFO","service":"fraud-engine","msg":"Received transaction event: txnId=5b84f6ff-e24f-4e71-a953-82e63bf11bfe, userId=USR-SIM-04, amount=150000.0"}
+{"time":"2026-02-14 19:10:33","level":"DEBUG","service":"fraud-engine","msg":"AMOUNT rule triggered: Large Transaction Amount for amount=150000.0"}
+{"time":"2026-02-14 19:10:33","level":"DEBUG","service":"fraud-engine","msg":"VELOCITY rule triggered: High Velocity for count=6"}
+{"time":"2026-02-14 19:10:33","level":"INFO","service":"fraud-engine","msg":"Rule evaluation: txnId=5b84f6ff-e24f-4e71-a953-82e63bf11bfe, amount=150000.0, score=100, decision=BLOCK, reason=Large Transaction Amount (>10000), High Velocity (6 txns)"}
+{"time":"2026-02-14 19:10:33","level":"DEBUG","service":"fraud-engine","msg":"Transaction marked as processed: txnId=5b84f6ff-e24f-4e71-a953-82e63bf11bfe, ttl=24h"}
+{"time":"2026-02-14 19:10:33","level":"INFO","service":"fraud-engine","msg":"Fraud analysis complete: txnId=5b84f6ff-e24f-4e71-a953-82e63bf11bfe, risk=100, decision=BLOCK"}
+{"time":"2026-02-14 19:10:33","level":"INFO","service":"fraud-engine","msg":"Fraud result published: txnId=5b84f6ff-e24f-4e71-a953-82e63bf11bfe, score=100, decision=BLOCK"}
+{"time":"2026-02-14 19:10:33","level":"DEBUG","service":"fraud-engine","msg":"Transaction acknowledged: txnId=5b84f6ff-e24f-4e71-a953-82e63bf11bfe"}
+{"time":"2026-02-14 19:10:34","level":"INFO","service":"fraud-engine","msg":"Received transaction event: txnId=8edc336a-21c7-4e64-8a11-ab4a3cca0a1a, userId=USR-SIM-04, amount=150000.0"}
+{"time":"2026-02-14 19:10:34","level":"DEBUG","service":"fraud-engine","msg":"AMOUNT rule triggered: Large Transaction Amount for amount=150000.0"}
+{"time":"2026-02-14 19:10:34","level":"DEBUG","service":"fraud-engine","msg":"VELOCITY rule triggered: High Velocity for count=6"}
+{"time":"2026-02-14 19:10:34","level":"INFO","service":"fraud-engine","msg":"Rule evaluation: txnId=8edc336a-21c7-4e64-8a11-ab4a3cca0a1a, amount=150000.0, score=100, decision=BLOCK, reason=Large Transaction Amount (>10000), High Velocity (6 txns)"}
+{"time":"2026-02-14 19:10:34","level":"DEBUG","service":"fraud-engine","msg":"Transaction marked as processed: txnId=8edc336a-21c7-4e64-8a11-ab4a3cca0a1a, ttl=24h"}
+{"time":"2026-02-14 19:10:34","level":"INFO","service":"fraud-engine","msg":"Fraud analysis complete: txnId=8edc336a-21c7-4e64-8a11-ab4a3cca0a1a, risk=100, decision=BLOCK"}
+{"time":"2026-02-14 19:10:34","level":"INFO","service":"fraud-engine","msg":"Fraud result published: txnId=8edc336a-21c7-4e64-8a11-ab4a3cca0a1a, score=100, decision=BLOCK"}
+{"time":"2026-02-14 19:10:34","level":"DEBUG","service":"fraud-engine","msg":"Transaction acknowledged: txnId=8edc336a-21c7-4e64-8a11-ab4a3cca0a1a"}
+{"time":"2026-02-14 19:10:35","level":"INFO","service":"fraud-engine","msg":"Received transaction event: txnId=82c0b23a-8e66-4c91-b4e9-1ea391c4efd5, userId=USR-SIM-04, amount=150000.0"}
+{"time":"2026-02-14 19:10:35","level":"DEBUG","service":"fraud-engine","msg":"AMOUNT rule triggered: Large Transaction Amount for amount=150000.0"}
+{"time":"2026-02-14 19:10:35","level":"DEBUG","service":"fraud-engine","msg":"VELOCITY rule triggered: High Velocity for count=6"}
+{"time":"2026-02-14 19:10:35","level":"INFO","service":"fraud-engine","msg":"Rule evaluation: txnId=82c0b23a-8e66-4c91-b4e9-1ea391c4efd5, amount=150000.0, score=100, decision=BLOCK, reason=Large Transaction Amount (>10000), High Velocity (6 txns)"}
+{"time":"2026-02-14 19:10:35","level":"DEBUG","service":"fraud-engine","msg":"Transaction marked as processed: txnId=82c0b23a-8e66-4c91-b4e9-1ea391c4efd5, ttl=24h"}
+{"time":"2026-02-14 19:10:35","level":"INFO","service":"fraud-engine","msg":"Fraud analysis complete: txnId=82c0b23a-8e66-4c91-b4e9-1ea391c4efd5, risk=100, decision=BLOCK"}
+{"time":"2026-02-14 19:10:35","level":"INFO","service":"fraud-engine","msg":"Fraud result published: txnId=82c0b23a-8e66-4c91-b4e9-1ea391c4efd5, score=100, decision=BLOCK"}
+{"time":"2026-02-14 19:10:35","level":"DEBUG","service":"fraud-engine","msg":"Transaction acknowledged: txnId=82c0b23a-8e66-4c91-b4e9-1ea391c4efd5"}
+{"time":"2026-02-14 19:11:30","level":"INFO","service":"fraud-engine","msg":"Initializing Spring DispatcherServlet 'dispatcherServlet'"}
+{"time":"2026-02-14 19:11:30","level":"INFO","service":"fraud-engine","msg":"Initializing Servlet 'dispatcherServlet'"}
+{"time":"2026-02-14 19:11:30","level":"INFO","service":"fraud-engine","msg":"Completed initialization in 3 ms"}
+{"time":"2026-02-14 19:14:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.dlq-1, groupId=fraud-group.dlq] Node -1 disconnected."}
+{"time":"2026-02-14 19:14:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group-3, groupId=fraud-group] Node -1 disconnected."}
+{"time":"2026-02-14 19:14:31","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-2000-2, groupId=fraud-group.retry-2000] Node -1 disconnected."}
+{"time":"2026-02-14 19:14:32","level":"INFO","service":"fraud-engine","msg":"[Consumer clientId=consumer-fraud-group.retry-1000-4, groupId=fraud-group.retry-1000] Node -1 disconnected."}
+{"time":"2026-02-14 19:14:37","level":"INFO","service":"fraud-engine","msg":"[Producer clientId=producer-1] Node -1 disconnected."}
