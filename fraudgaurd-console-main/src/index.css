@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 22%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 20% 20%;
+    --input: 215 20% 20%;
+    --ring: 25 95% 53%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 222 47% 9%;
+    --sidebar-foreground: 215 20% 65%;
+    --sidebar-primary: 25 95% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 33% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 215 20% 16%;
+    --sidebar-ring: 25 95% 53%;
+
+    /* Custom tokens */
+    --glass-bg: 0 0% 100% / 0.06;
+    --glass-border: 0 0% 100% / 0.1;
+    --glass-hover: 0 0% 100% / 0.1;
+    --orange-glow: 25 95% 53% / 0.35;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 0%;
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-xl border rounded-2xl shadow-2xl transition-all duration-300;
+    background: hsl(var(--glass-bg));
+    border-color: hsl(var(--glass-border));
+  }
+  .glass-card:hover {
+    background: hsl(var(--glass-hover));
+    box-shadow: 0 25px 50px -12px hsl(var(--orange-glow));
+    transform: scale(1.02);
+  }
+  .glass-card-static {
+    @apply backdrop-blur-xl border rounded-2xl shadow-2xl;
+    background: hsl(var(--glass-bg));
+    border-color: hsl(var(--glass-border));
+  }
+  .orange-glow {
+    box-shadow: 0 0 40px hsl(var(--orange-glow));
+  }
+  .orange-glow-sm {
+    box-shadow: 0 0 20px hsl(var(--orange-glow));
+  }
+  .text-gradient-orange {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(25 95% 53%), hsl(38 92% 60%));
+  }
+  .status-allow {
+    @apply text-xs font-semibold px-2.5 py-0.5 rounded-full;
+    background: hsl(142 71% 45% / 0.15);
+    color: hsl(var(--success));
+  }
+  .status-alert {
+    @apply text-xs font-semibold px-2.5 py-0.5 rounded-full;
+    background: hsl(38 92% 50% / 0.15);
+    color: hsl(var(--warning));
+  }
+  .status-block {
+    @apply text-xs font-semibold px-2.5 py-0.5 rounded-full;
+    background: hsl(0 84% 60% / 0.15);
+    color: hsl(var(--destructive));
+  }
+  .status-info {
+    @apply text-xs font-semibold px-2.5 py-0.5 rounded-full;
+    background: hsl(217 91% 60% / 0.15);
+    color: hsl(var(--info));
+  }
+}
+
+@layer utilities {
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes float-up {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(25 95% 53% / 0.2); }
+  50% { box-shadow: 0 0 40px hsl(25 95% 53% / 0.5); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
