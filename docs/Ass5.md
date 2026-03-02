@@ -3,6 +3,18 @@
 **Project Title:** Automated Fraud Detection and Alerting System
 
 
+---
+
+## I. Hosting Application Components [Marks = 5]
+
+### 1. Host Site
+The application consists of a decoupled frontend, backend microservices, and managed data stores. The target hosting environments are distributed as follows:
+
+*   **Frontend (FraudGuard Console):** Hosted on **Vercel**. Vercel acts as a global Content Delivery Network (CDN) optimized for React/Vite Single Page Applications (SPAs).
+*   **Backend Microservices (Java Spring Boot):** Hosted on **Oracle Cloud Infrastructure (OCI)** Compute Instances (specifically Ampere A1 ARM VMs) utilizing a containerized `docker-compose` environment to run the API Gateway, Auth Service, Transaction Service, Fraud Engine, and Alert Service.
+*   **Message Broker (Apache Kafka):** Hosted via **Upstash**, providing a serverless Kafka cluster for decoupled event streaming.
+*   **Databases (MySQL Engine & Redis Cache):** Hosted via **Aiven** and **Upstash Redis** respectively for managed, high-availability data persistence.
+
 ### 2. Deployment Strategy
 The deployment process follows a systematic, containerized CI/CD pipeline:
 
