@@ -3,6 +3,7 @@
 
 ---
 
+
 # Part I. Choice of UI and Justification
 
 ## Chosen Interface  
@@ -157,3 +158,58 @@ Marks the transaction as legitimate.
 Sends the transaction for manual investigation.
 
 These actions allow analysts to interact directly with the fraud detection system.
+
+
+
+
+# User Interaction Flow 
+
+## Step 1 – User Login
+A fraud analyst logs into the **FraudGuard dashboard** using their credentials.
+
+---
+
+## Step 2 – Monitoring Transactions
+
+The dashboard displays a list of recent transactions and fraud alerts.
+
+Example:
+
+| Transaction | User | Amount | Risk |
+|---|---|---|---|
+| T1023 | User_21 | ₹5000 | HIGH |
+
+---
+
+## Step 3 – Fraud Detection
+
+The system automatically highlights transactions with **high risk scores**.
+
+---
+
+## Step 4 – Analyst Decision
+
+The analyst selects an action:
+
+- Block  
+- Allow  
+- Review  
+
+---
+
+## Step 5 – System Response
+
+The system records the action and updates the transaction status in the database.
+
+---
+
+# Final Conclusion
+
+The **Direct Manipulation Dashboard Interface** enables fraud analysts to:
+
+- monitor transactions in real time  
+- quickly detect suspicious activity  
+- interact with the system using simple controls  
+- reduce operational errors  
+
+Thus, the UI design effectively supports the requirements of the **Automated Fraud Detection and Alerting System**.
