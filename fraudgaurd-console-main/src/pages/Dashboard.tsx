@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { TrendingUp, TrendingDown, ShieldAlert, Ban, Activity, AlertTriangle } from "lucide-react";
+import { TrendingUp, TrendingDown, ShieldAlert, Ban, Activity, AlertTriangle, Settings, Play, Shield } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { transactionService, DashboardMetrics, Transaction } from "@/services/transactionService";
 import { alertService } from "@/services/alertService";
 
@@ -60,6 +61,7 @@ const statusCls: Record<string, string> = {
 };
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [metrics, setMetrics] = useState<DashboardMetrics | null>(null);
   const [alertMetrics, setAlertMetrics] = useState<any>(null);
   const [recentTransactions, setRecentTransactions] = useState<Transaction[]>([]);
@@ -127,6 +129,30 @@ const Dashboard = () => {
               </span>
               {/* Change indicator removed/static as backend doesn't provide history yet */}
             </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Quick Actions */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        {[
+          { label: "Review High-Risk", icon: ShieldAlert, color: "text-destructive", bg: "bg-destructive/10", path: "/transactions" },
+          { label: "Manage Rules", icon: Settings, color: "text-warning", bg: "bg-warning/10", path: "/rules" },
+          { label: "Simulate Txn", icon: Play, color: "text-primary", bg: "bg-primary/10", path: "/simulate" },
+          { label: "System Health", icon: Activity, color: "text-success", bg: "bg-success/10", path: "/system-health" },
+        ].map((action, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: i * 0.1 }}
+            className="glass-card-static p-4 flex flex-col items-center justify-center space-y-2 cursor-pointer hover:bg-accent/40 transition-all text-center"
+            onClick={() => navigate(action.path)}
+          >
+            <div className={`p-3 rounded-full ${action.bg}`}>
+              <action.icon className={`h-6 w-6 ${action.color}`} />
+            </div>
+            <span className="text-sm font-medium">{action.label}</span>
           </motion.div>
         ))}
       </div>
