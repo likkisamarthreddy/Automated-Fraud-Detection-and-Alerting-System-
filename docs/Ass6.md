@@ -96,3 +96,64 @@ A **Direct Manipulation Dashboard Interface** is the most suitable UI design bec
 - reduced user errors  
 
 ---
+
+
+# Part II. UI Implementation and User Interaction
+
+The FraudGuard system provides a *web-based dashboard interface* where users interact with the fraud detection system.
+
+The dashboard includes the following components:
+
+- Fraud Alert Panel  
+- Transaction Monitoring Table  
+- Quick Action Buttons  
+- Fraud Statistics Dashboard  
+
+---
+
+## 1. Fraud Alert Panel
+
+The Fraud Alert Panel displays recent suspicious transactions detected by the fraud detection engine.
+
+Features include:
+
+- highlighting high-risk transactions  
+- displaying transaction IDs and user details  
+- showing alert timestamps  
+
+This helps analysts quickly identify potential fraud cases.
+
+---
+
+## 2. Transaction Monitoring Table
+
+The Transaction Monitoring Table displays all incoming transactions.
+
+Typical columns include:
+
+| Column | Description |
+|------|-------------|
+| Transaction ID | Unique transaction identifier |
+| User ID | Account initiating the transaction |
+| Transaction Amount | Value of the transaction |
+| Risk Score | Fraud risk level assigned by system |
+| Action Options | Controls for analyst actions |
+
+Transactions with *high fraud risk scores* are visually highlighted.
+
+---
+
+## 3. Quick Action Options
+
+Each suspicious transaction provides action options for the analyst.
+
+### Block Transaction
+Immediately stops the suspicious transaction.
+
+### Allow Transaction
+Marks the transaction as legitimate.
+
+### Review Transaction
+Sends the transaction for manual investigation.
+
+These actions allow analysts to interact directly with the fraud detection system.
