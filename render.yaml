@@ -1,0 +1,81 @@
+services:
+  # 1. API Gateway
+  - type: web
+    name: api-gateway
+    env: docker
+    dockerfilePath: backend/api-gateway/Dockerfile
+    envVars:
+      - key: SPRING_DATA_REDIS_HOST
+        value: process.env.REDIS_URL
+      - key: JWT_SECRET
+        value: Z3J1cG8tZnJhdWQtZGV0ZWN0aW9uLXN5c3RlbS1zZWNyZXQta2V5LTIwMjQ=
+      - key: AUTH_SERVICE_URL
+        value: https://auth-service.onrender.com
+      - key: TRANSACTION_SERVICE_URL
+        value: https://transaction-service.onrender.com
+      - key: ALERT_SERVICE_URL
+        value: https://alert-service.onrender.com
+
+  # 2. Auth Service
+  - type: web
+    name: auth-service
+    env: docker
+    dockerfilePath: backend/auth-service/Dockerfile
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: process.env.MYSQL_URL
+      - key: SPRING_DATASOURCE_USERNAME
+        value: process.env.MYSQL_USER
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: process.env.MYSQL_PASS
+      - key: SPRING_DATA_REDIS_HOST
+        value: process.env.REDIS_URL
+      - key: JWT_SECRET
+        value: Z3J1cG8tZnJhdWQtZGV0ZWN0aW9uLXN5c3RlbS1zZWNyZXQta2V5LTIwMjQ=
+
+  # 3. Transaction Service
+  - type: web
+    name: transaction-service
+    env: docker
+    dockerfilePath: backend/transaction-service/Dockerfile
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: process.env.MYSQL_URL
+      - key: SPRING_DATASOURCE_USERNAME
+        value: process.env.MYSQL_USER
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: process.env.MYSQL_PASS
+      - key: SPRING_KAFKA_BOOTSTRAP_SERVERS
+        value: process.env.KAFKA_URL
+
+  # 4. Fraud Engine Service
+  - type: web
+    name: fraud-engine-service
+    env: docker
+    dockerfilePath: backend/fraud-engine-service/Dockerfile
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: process.env.MYSQL_URL
+      - key: SPRING_DATASOURCE_USERNAME
+        value: process.env.MYSQL_USER
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: process.env.MYSQL_PASS
+      - key: SPRING_KAFKA_BOOTSTRAP_SERVERS
+        value: process.env.KAFKA_URL
+      - key: SPRING_DATA_REDIS_HOST
+        value: process.env.REDIS_URL
+
+  # 5. Alert Service
+  - type: web
+    name: alert-service
+    env: docker
+    dockerfilePath: backend/alert-service/Dockerfile
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: process.env.MYSQL_URL
+      - key: SPRING_DATASOURCE_USERNAME
+        value: process.env.MYSQL_USER
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: process.env.MYSQL_PASS
+      - key: SPRING_KAFKA_BOOTSTRAP_SERVERS
+        value: process.env.KAFKA_URL

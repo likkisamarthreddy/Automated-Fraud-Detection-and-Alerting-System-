@@ -1,5 +1,0 @@
-com\frauddetection\gateway\exception\GatewayExceptionHandler.class
-com\frauddetection\gateway\filter\JwtAuthFilterFactory.class
-com\frauddetection\gateway\ApiGatewayApplication.class
-com\frauddetection\gateway\filter\JwtAuthFilterFactory$Config.class
-com\frauddetection\gateway\filter\RateLimitFilter.class

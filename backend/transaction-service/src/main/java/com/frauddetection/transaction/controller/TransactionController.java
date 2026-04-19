@@ -47,12 +47,12 @@ public class TransactionController {
 
     @GetMapping
     public ResponseEntity<ApiResponse<Page<Transaction>>> getTransactions(
-            @RequestParam(required = false) String userId,
-            @RequestParam(required = false) String decision,
-            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate,
-            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "20") int size) {
+            @RequestParam(name = "userId", required = false) String userId,
+            @RequestParam(name = "decision", required = false) String decision,
+            @RequestParam(name = "startDate", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate,
+            @RequestParam(name = "endDate", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate,
+            @RequestParam(name = "page", defaultValue = "0") int page,
+            @RequestParam(name = "size", defaultValue = "20") int size) {
         Page<Transaction> transactions = transactionService.getTransactions(
                 userId, decision, startDate, endDate,
                 PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdAt")));
@@ -60,7 +60,7 @@ public class TransactionController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<Transaction>> getTransaction(@PathVariable String id) {
+    public ResponseEntity<ApiResponse<Transaction>> getTransaction(@PathVariable(name = "id") String id) {
         try {
             Transaction transaction = transactionService.getTransactionById(id);
             return ResponseEntity.ok(ApiResponse.success(transaction));

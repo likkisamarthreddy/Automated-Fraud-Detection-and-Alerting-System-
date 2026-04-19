@@ -6,3 +6,10 @@ node_modules/
 *.model
 .idea/
 .vscode/
+target/
+*.jar
+build_*.txt
+*_build_log*.txt
+*_err.log
+service.log
+service_err.log

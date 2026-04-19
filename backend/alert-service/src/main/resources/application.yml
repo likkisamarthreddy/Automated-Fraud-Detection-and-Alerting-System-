@@ -1,0 +1,51 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: alert-service
+  datasource:
+    url: jdbc:mysql://localhost:3307/fraud_alerts?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: frauduser
+    password: fraudpass
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: alert-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: com.frauddetection.common.dto
+        spring.json.type.mapping: fraudResultEvent:com.frauddetection.common.dto.FraudResultEvent
+
+alert:
+  throttle:
+    window-seconds: 300
+    max-alerts-per-user: 5
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  pattern:
+    console: '{"time":"%d{yyyy-MM-dd HH:mm:ss}","level":"%p","service":"alert-service","msg":"%m"}%n'
+  level:
+    com.frauddetection: DEBUG

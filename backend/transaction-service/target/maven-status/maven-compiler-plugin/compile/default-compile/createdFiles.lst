@@ -1,8 +1,0 @@
-com\frauddetection\transaction\config\SecurityConfig.class
-com\frauddetection\transaction\repository\TransactionRepository.class
-com\frauddetection\transaction\controller\TransactionController.class
-com\frauddetection\transaction\kafka\FraudResultConsumer.class
-com\frauddetection\transaction\TransactionServiceApplication.class
-com\frauddetection\transaction\entity\Transaction.class
-com\frauddetection\transaction\service\TransactionService.class
-com\frauddetection\transaction\kafka\TransactionProducer.class

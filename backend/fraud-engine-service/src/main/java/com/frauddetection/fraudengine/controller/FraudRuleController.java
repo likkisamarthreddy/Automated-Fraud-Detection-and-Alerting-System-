@@ -29,7 +29,7 @@ public class FraudRuleController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<FraudRule> getRuleById(@PathVariable Long id) {
+    public ResponseEntity<FraudRule> getRuleById(@PathVariable(name = "id") Long id) {
         return fraudRuleService.getRuleById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -42,7 +42,7 @@ public class FraudRuleController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<FraudRule> updateRule(@PathVariable Long id, @RequestBody FraudRule rule) {
+    public ResponseEntity<FraudRule> updateRule(@PathVariable(name = "id") Long id, @RequestBody FraudRule rule) {
         try {
             FraudRule updated = fraudRuleService.updateRule(id, rule);
             return ResponseEntity.ok(updated);
@@ -52,7 +52,7 @@ public class FraudRuleController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteRule(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteRule(@PathVariable(name = "id") Long id) {
         fraudRuleService.deleteRule(id);
         return ResponseEntity.noContent().build();
     }
