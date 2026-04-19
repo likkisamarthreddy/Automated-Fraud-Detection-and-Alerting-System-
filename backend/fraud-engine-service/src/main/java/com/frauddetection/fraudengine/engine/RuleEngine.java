@@ -22,6 +22,9 @@ public class RuleEngine {
     private final VelocityService velocityService;
     private final FraudRuleService fraudRuleService;
 
+    @org.springframework.beans.factory.annotation.Value("${fraud.rules.velocity-window-ms:600000}")
+    private long velocityWindowMs;
+
     public RuleEngine(VelocityService velocityService, FraudRuleService fraudRuleService) {
         this.velocityService = velocityService;
         this.fraudRuleService = fraudRuleService;
@@ -55,21 +58,22 @@ public class RuleEngine {
             }
         }
 
-        // 2. VELOCITY RULES: count transactions in last 60 seconds
+        // 2. VELOCITY RULES: count transactions in configured window
         long now = System.currentTimeMillis();
-        long countIn60s = history.stream()
-                .filter(t -> (now - t.timestamp) < 60000)
+        long countInWindow = history.stream()
+                .filter(t -> (now - t.timestamp) < velocityWindowMs)
                 .count() + 1; // +1 for current transaction
 
         for (FraudRule rule : velocityRules) {
-            if (countIn60s > rule.getThresholdValue()) {
+            if (countInWindow > rule.getThresholdValue()) {
                 score += rule.getRiskScoreWeight();
-                triggeredRules.add(rule.getRuleName() + " (" + countIn60s + " txns)");
-                log.debug("VELOCITY rule triggered: {} for count={}", rule.getRuleName(), countIn60s);
+                triggeredRules.add(rule.getRuleName() + " (" + countInWindow + " txns)");
+                log.debug("VELOCITY rule triggered: {} for count={}", rule.getRuleName(), countInWindow);
             }
         }
 
         // 3. DEVICE RULES: check if device is new/unknown
+        // Risk if device is not in known list AND user has a history (not first txn)
         boolean isNewDevice = !profile.getKnownDevices().contains(event.getDevice())
                 && !profile.getKnownDevices().isEmpty();
 

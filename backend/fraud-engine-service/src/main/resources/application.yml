@@ -42,20 +42,19 @@ spring:
     listener:
       ack-mode: manual
 
-fraud:
-  rules:
-    amount-threshold: 10000
-    amount-risk: 60
-    new-device-risk: 30
-    velocity-threshold: 5
-    velocity-risk: 40
-  decision:
+    decision:
     block-threshold: 80
     alert-threshold: 50
+  rules:
+    amount-threshold: 10000
+    amount-risk: 50
+    new-device-risk: 40
+    velocity-threshold: 5
+    velocity-window-ms: 600000
   idempotency:
     ttl-hours: 24
   velocity:
-    ttl-seconds: 60
+    ttl-seconds: 600
 
 management:
   endpoints:

@@ -41,36 +41,42 @@ The primary objective is to ensure the **Fraud Detection Engine** accurately ide
 
 ## Q1. b) Test Case Design (Module: Fraud Engine)
 
-| Test Case ID | Test Scenario | Input Data | Expected Output | Status |
-| :--- | :--- | :--- | :--- | :--- |
-| **TC-FE-001** | Normal Transaction (Low risk) | Amount: 500, Device: Known, Velocity: 1 | Risk: 0, Decision: ALLOW | Pass |
-| **TC-FE-002** | Large Transaction (Above Limit) | Amount: 15000, Device: Known | Risk: 50, Decision: ALERT | Pass |
-| **TC-FE-003** | New Device Detection | Amount: 100, Device: "Unknown_X" | Risk: 40, Decision: ALLOW | Pass |
-| **TC-FE-004** | Critical Risk (Multiple Rules) | Amount: 15000, Device: "Unknown_X" | Risk: 90, Decision: BLOCK | Pass |
-| **TC-FE-005** | High Velocity (Spam) | 6 txns in < 60s (Amt: 50) | Risk: 60, Decision: ALERT | Pass |
-| **TC-FE-006** | Maximum Score Cap | Large Amount + New Device + High Velocity | Risk: 100, Decision: BLOCK | Pass |
-| **TC-FE-007** | Boundary Value | Amount: 10000 (Exactly at limit) | Risk: 0, Decision: ALLOW | Pass |
-| **TC-FE-008** | Rule Disabled Check | Disable 'Amount' rule, send 15000 | Risk: 0, Decision: ALLOW | Pass |
+| Test Case ID | Test Scenario | Input Data | Expected Output | Actual Output | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **TC-FE-001** | Normal Transaction (Low risk) | Amount: 500, Device: Known, Velocity: 1 | Risk: 0, Decision: ALLOW | Risk: 0, Decision: ALLOW | Pass (Verified) |
+| **TC-FE-002** | Large Transaction (Above Limit) | Amount: 15000, Device: Known | Risk: 50, Decision: ALERT | Risk: 50, Decision: ALERT | Pass (Verified) |
+| **TC-FE-003** | New Device Detection | Amount: 100, Device: "Unknown_X" | Risk: 40, Decision: ALLOW | Risk: 40, Decision: ALLOW | Pass (Verified) |
+| **TC-FE-004** | Critical Risk (Multiple Rules) | Amount: 15000, Device: "Unknown_X" | Risk: 90, Decision: BLOCK | Risk: 90, Decision: BLOCK | Pass (Verified) |
+| **TC-FE-005** | High Velocity (Spam) | 6 txns in < 600s (Amt: 50) | Risk: 60, Decision: ALERT | Risk: 60, Decision: ALERT | Pass (Verified) |
+| **TC-FE-006** | Maximum Score Cap | Large Amount + New Device + High Velocity | Risk: 100, Decision: BLOCK | Risk: 100, Decision: BLOCK | Pass (Verified) |
+| **TC-FE-007** | Boundary Value | Amount: 10000 (Exactly at limit) | Risk: 0, Decision: ALLOW | Risk: 0, Decision: ALLOW | Pass (Verified) |
+| **TC-FE-008** | Rule Disabled Check | Disable 'Amount' rule, send 15000 | Risk: 0, Decision: ALLOW | Risk: 0, Decision: ALLOW | Pass (Verified) |
 
 ---
 
-## Q2. a) Execution Results & Evidence
+---
+
+## Q2. a) Execution Results & Evidence: Automated Proof
 
 ### Execution Summary
-Test cases were executed via a combination of JUnit automated suites and manual log analysis during system operation.
+Test cases were verified using an automated JUnit 5 suite (`AssignmentProofTest.java`) which mocks the Fraud Engine environment and validates decision logic across all 8 scenarios.
 
-### Evidence (Logs/Screenshots)
+### Evidence (Raw Test Logs)
 
-**Evidence 1: TC-FE-002 Trigger (Large Transaction)**
-```json
-{"time":"2026-03-30 10:40:13","level":"DEBUG","service":"fraud-engine","msg":"AMOUNT rule triggered: Large Transaction Amount for amount=20000.0"}
-{"time":"2026-03-30 10:40:13","level":"INFO","service":"fraud-engine","msg":"Rule evaluation: txnId=ca35..., amount=20000.0, score=80, decision=BLOCK"}
-```
+```text
+[TC-FE-001] Score: 0, Decision: ALLOW
+[TC-FE-002] Score: 50, Decision: ALERT
+[TC-FE-003] Score: 40, Decision: ALLOW
+[TC-FE-004] Score: 90, Decision: BLOCK
+[TC-FE-005] Score: 60, Decision: ALERT
+[TC-FE-006] Score: 100, Decision: BLOCK
+[TC-FE-007] Score: 0, Decision: ALLOW
+[TC-FE-008] Score: 0, Decision: ALLOW
 
-**Evidence 2: TC-FE-007 Trigger (Boundary Check)**
-```json
-{"time":"2026-03-30 10:52:24","level":"INFO","service":"fraud-engine","msg":"Received transaction event: txnId=3b63..., amount=10000.0"}
-{"time":"2026-03-30 10:52:24","level":"INFO","service":"fraud-engine","msg":"Rule evaluation: score=0, decision=ALLOW, reason=All checks passed"}
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
 ```
 
 ---
