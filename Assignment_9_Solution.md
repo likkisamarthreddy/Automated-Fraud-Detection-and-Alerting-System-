@@ -27,15 +27,18 @@ The primary objective is to ensure the **Fraud Detection Engine** accurately ide
 - **Testing Framework:** JUnit 5, Mockito
 - **API Testing:** Postman / cURL
 - **Monitoring:** Docker Desktop (for Kafka/Redis status), System Logs (Spring Boot)
+  
 
 ### 5. Entry and Exit Criteria
 - **Entry Criteria:**
   - Code for Fraud Engine and Transaction services is buildable.
   - Test database and Kafka broker are reachable.
+  - Required configurations are properly set
 - **Exit Criteria:**
   - All 8 designed test cases pass.
   - At least 80% code coverage on core business logic.
   - No high-severity bugs open.
+  - System meets basic performance expectations under load
 
 ---
 
